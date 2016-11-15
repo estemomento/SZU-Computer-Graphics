@@ -1,0 +1,25 @@
+﻿  main.cpp
+D:\Users\Alejandro Lau\Documents\Visual Studio 2015\Projects\Project2\Project2\include\Angel.h(63): warning C4305: “初始化”: 从“double”到“GLfloat”截断
+d:\users\alejandro lau\documents\visual studio 2015\projects\project2\project2\include\mat.h(698): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+d:\users\alejandro lau\documents\visual studio 2015\projects\project2\project2\include\mat.h(699): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+d:\users\alejandro lau\documents\visual studio 2015\projects\project2\project2\include\mat.h(700): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+d:\users\alejandro lau\documents\visual studio 2015\projects\project2\project2\include\mat.h(721): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+d:\users\alejandro lau\documents\visual studio 2015\projects\project2\project2\include\mat.h(723): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+d:\users\alejandro lau\documents\visual studio 2015\projects\project2\project2\include\mat.h(726): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+d:\users\alejandro lau\documents\visual studio 2015\projects\project2\project2\include\mat.h(743): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+main.cpp(22): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+main.cpp(24): warning C4244: “参数”: 从“double”转换到“const GLfloat”，可能丢失数据
+main.cpp(25): warning C4244: “*=”: 从“double”转换到“GLfloat”，可能丢失数据
+main.cpp(32): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+main.cpp(74): warning C4305: “参数”: 从“double”到“GLfloat”截断
+main.cpp(81): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+main.cpp(81): warning C4244: “参数”: 从“double”转换到“const GLfloat”，可能丢失数据
+main.cpp(106): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+main.cpp(106): warning C4244: “参数”: 从“double”转换到“const GLfloat”，可能丢失数据
+  正在生成代码
+  11 of 42 functions (26.2%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  已完成代码的生成
+  Project2.vcxproj -> d:\Users\Alejandro Lau\Documents\Visual Studio 2015\Projects\Project2\Release\Project2.exe
+  Project2.vcxproj -> d:\Users\Alejandro Lau\Documents\Visual Studio 2015\Projects\Project2\Release\Project2.pdb (Full PDB)

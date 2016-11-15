@@ -1,0 +1,27 @@
+﻿  InitShader.cpp
+D:\Users\Alejandro Lau\Documents\Visual Studio 2015\Projects\exp2\exp2\include\Angel.h(63): warning C4305: “初始化”: 从“double”到“GLfloat”截断
+d:\users\alejandro lau\documents\visual studio 2015\projects\exp2\exp2\include\mat.h(698): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+d:\users\alejandro lau\documents\visual studio 2015\projects\exp2\exp2\include\mat.h(699): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+d:\users\alejandro lau\documents\visual studio 2015\projects\exp2\exp2\include\mat.h(700): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+d:\users\alejandro lau\documents\visual studio 2015\projects\exp2\exp2\include\mat.h(721): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+d:\users\alejandro lau\documents\visual studio 2015\projects\exp2\exp2\include\mat.h(723): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+d:\users\alejandro lau\documents\visual studio 2015\projects\exp2\exp2\include\mat.h(726): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+d:\users\alejandro lau\documents\visual studio 2015\projects\exp2\exp2\include\mat.h(743): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+  main.cpp
+D:\Users\Alejandro Lau\Documents\Visual Studio 2015\Projects\exp2\exp2\include\Angel.h(63): warning C4305: “初始化”: 从“double”到“GLfloat”截断
+d:\users\alejandro lau\documents\visual studio 2015\projects\exp2\exp2\include\mat.h(698): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+d:\users\alejandro lau\documents\visual studio 2015\projects\exp2\exp2\include\mat.h(699): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+d:\users\alejandro lau\documents\visual studio 2015\projects\exp2\exp2\include\mat.h(700): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+d:\users\alejandro lau\documents\visual studio 2015\projects\exp2\exp2\include\mat.h(721): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+d:\users\alejandro lau\documents\visual studio 2015\projects\exp2\exp2\include\mat.h(723): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+d:\users\alejandro lau\documents\visual studio 2015\projects\exp2\exp2\include\mat.h(726): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+d:\users\alejandro lau\documents\visual studio 2015\projects\exp2\exp2\include\mat.h(743): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+main.cpp(73): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+main.cpp(158): warning C4244: “+=”: 从“double”转换到“GLfloat”，可能丢失数据
+main.cpp(161): warning C4244: “+=”: 从“double”转换到“GLfloat”，可能丢失数据
+main.cpp(164): warning C4244: “+=”: 从“double”转换到“GLfloat”，可能丢失数据
+  正在生成代码
+  All 282 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  exp2.vcxproj -> d:\Users\alejandro lau\documents\visual studio 2015\Projects\exp2\Release\exp2.exe
+  exp2.vcxproj -> d:\Users\alejandro lau\documents\visual studio 2015\Projects\exp2\Release\exp2.pdb (Full PDB)

@@ -1,0 +1,19 @@
+﻿  main.cpp
+d:\users\alejandro lau\documents\visual studio 2015\projects\exp3\exp3\include/Angel.h(63): warning C4305: “初始化”: 从“double”到“GLfloat”截断
+d:\users\alejandro lau\documents\visual studio 2015\projects\exp3\exp3\include\mat.h(698): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+d:\users\alejandro lau\documents\visual studio 2015\projects\exp3\exp3\include\mat.h(699): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+d:\users\alejandro lau\documents\visual studio 2015\projects\exp3\exp3\include\mat.h(700): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+d:\users\alejandro lau\documents\visual studio 2015\projects\exp3\exp3\include\mat.h(721): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+d:\users\alejandro lau\documents\visual studio 2015\projects\exp3\exp3\include\mat.h(723): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+d:\users\alejandro lau\documents\visual studio 2015\projects\exp3\exp3\include\mat.h(726): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+d:\users\alejandro lau\documents\visual studio 2015\projects\exp3\exp3\include\mat.h(743): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+main.cpp(63): warning C4018: “<”: 有符号/无符号不匹配
+main.cpp(170): warning C4244: “=”: 从“int”转换到“GLfloat”，可能丢失数据
+main.cpp(171): warning C4244: “=”: 从“int”转换到“GLfloat”，可能丢失数据
+  正在生成代码
+  2 of 372 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  已完成代码的生成
+  exp3.vcxproj -> d:\Users\Alejandro Lau\Documents\Visual Studio 2015\Projects\exp3\Release\exp3.exe
+  exp3.vcxproj -> d:\Users\Alejandro Lau\Documents\Visual Studio 2015\Projects\exp3\Release\exp3.pdb (Full PDB)
