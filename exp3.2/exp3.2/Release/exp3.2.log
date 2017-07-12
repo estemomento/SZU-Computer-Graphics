@@ -7,10 +7,12 @@ d:\users\alejandro lau\documents\visual studio 2015\projects\exp3.2\exp3.2\inclu
 d:\users\alejandro lau\documents\visual studio 2015\projects\exp3.2\exp3.2\include\mat.h(723): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
 d:\users\alejandro lau\documents\visual studio 2015\projects\exp3.2\exp3.2\include\mat.h(726): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
 d:\users\alejandro lau\documents\visual studio 2015\projects\exp3.2\exp3.2\include\mat.h(743): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+硬阴影\main.cpp(186): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+硬阴影\main.cpp(187): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
   正在生成代码
   2 of 51 functions ( 3.9%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    10 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   已完成代码的生成
   exp3.2.vcxproj -> d:\Users\Alejandro Lau\Documents\Visual Studio 2015\Projects\exp3.2\Release\exp3.2.exe
   exp3.2.vcxproj -> d:\Users\Alejandro Lau\Documents\Visual Studio 2015\Projects\exp3.2\Release\exp3.2.pdb (Full PDB)

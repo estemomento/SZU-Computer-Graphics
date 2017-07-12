@@ -120,7 +120,7 @@ void display()
 	//
 	Camera::modelMatrix = mat4(1.0);
 	Camera::viewMatrix = mat4(1.0);
-	Camera::projMatrix = Camera::ortho(-2, 2, -2, 2, -2, 2);
+	Camera::projMatrix = Ortho(-2, 2, -2, 2, -2, 2);
 
 	// 为方便观察投影，设置场景旋转矩阵
 	mat4 rotationMatrix = RotateX(rotationAngle);
@@ -140,7 +140,6 @@ void display()
 	// TODO 在正常的投影矩阵下绘制原始的三角形（用红色表示）
 	mat4 modelViewMatrix = Camera::viewMatrix * Camera::modelMatrix;
 	mat4 projMatrix = Camera::projMatrix;
-
 
 	glUniformMatrix4fv(modelViewMatrixID, 1, GL_TRUE, modelViewMatrix);
 	glUniformMatrix4fv(projMatrixID, 1, GL_TRUE, projMatrix);
@@ -182,6 +181,11 @@ void reshape(GLsizei w, GLsizei h)
 
 void mouse(int button, int state, int x, int y)
 {
+	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
+	{
+		lightPos[0] = (x - 250) / 10;
+		lightPos[1] = (250 - y) / 10;
+	}
 	return;
 }
 

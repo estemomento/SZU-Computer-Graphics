@@ -5,7 +5,6 @@
 
 #include <cstdlib>
 #include <iostream>
-#include <ctime>
 using namespace std;
 
 int mainWindow;
@@ -19,21 +18,25 @@ GLuint vertexIndexBuffer;
 GLuint vPositionID;
 GLuint vNormalID;
 GLuint modelViewMatrixID;
-GLuint modelViewProjMatrixID;
+GLuint projMatrixID;
+GLuint rotationMatrixID;
 
 GLuint lightPosID;
+GLuint shadowID;
 
 TriMesh* mesh = new TriMesh();
-vec3 lightPos(0.0, 0.0, 11.0);
+
+vec3 lightPos = vec3(0.5, 2.0, 1.0);
+float rotationAngle = -25.0;
 
 //////////////////////////////////////////////////////////////////////////
-// 相机参数设置
+// 相机参数设置，不涉及相机观察变换，所以将其设置为单位矩阵。
 
 namespace Camera
 {
 	mat4 modelMatrix(1.0);
 	mat4 viewMatrix(1.0);
-	mat4 projMatrix(1.0);
+	mat4 projMatrix = Ortho(-2.0, 2.0, -2.0, 2.0, -2.0, 2.0);
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -41,7 +44,7 @@ namespace Camera
 
 void init()
 {
-	glClearColor(0.5f, 0.5f, 0.5f, 0.5f);
+	glClearColor(0.4f, 0.4f, 0.4f, 0.0f);
 
 	programID = InitShader("vshader.glsl", "fshader.glsl");
 
@@ -49,8 +52,10 @@ void init()
 	vPositionID = glGetAttribLocation(programID, "vPosition");
 	vNormalID = glGetAttribLocation(programID, "vNormal");
 	modelViewMatrixID = glGetUniformLocation(programID, "modelViewMatrix");
-	modelViewProjMatrixID = glGetUniformLocation(programID, "modelViewProjMatrix");
+	projMatrixID = glGetUniformLocation(programID, "projMatrix");
+	rotationMatrixID = glGetUniformLocation(programID, "rotationMatrix");
 	lightPosID = glGetUniformLocation(programID, "lightPos");
+	shadowID = glGetUniformLocation(programID, "isShadow");
 
 	// 读取外部三维模型
 	mesh->read_off("sphere.off");
@@ -59,10 +64,16 @@ void init()
 	vector<vec3i> fs = mesh->f();
 	vector<vec3f> ns;
 
+	// 设置偏移向量，让阴影移动到模型y最小的点
+	vec3f shift = vs[0]; 
+	for(int i = 0; i < vs.size(); ++i)
+		if (vs[i].y < shift.y) shift = vs[i];
+
 	// 计算球模型在每个顶点的法向量，并存储到ns数组中
 	for (int i = 0; i < vs.size(); ++i)
 	{
-		ns.push_back(vs[i] - vec3(0.0, 0.0, 0.0));
+		vs[i].y -= shift.y;
+		ns.push_back(vs[i] - vec3(0.0, -shift.y, 0.0));
 	}
 
 	// 生成VAO
@@ -100,17 +111,39 @@ void display()
 
 	glUseProgram(programID);
 
-	// 计算相机观察矩阵和投影矩阵，并传入顶点着色器
+	glEnableVertexAttribArray(vPositionID);
+
+	// 计算相机观察矩阵，并传入顶点着色器
 	mat4 modelViewMatrix = Camera::viewMatrix * Camera::modelMatrix;
-	mat4 modelViewProjMatrix = modelViewMatrix * Camera::projMatrix;
 
 	glUniformMatrix4fv(modelViewMatrixID, 1, GL_TRUE, &modelViewMatrix[0][0]);
-	glUniformMatrix4fv(modelViewProjMatrixID, 1, GL_TRUE, &modelViewProjMatrix[0][0]);
+	glUniformMatrix4fv(projMatrixID, 1, GL_TRUE, &Camera::projMatrix[0][0]);
+	glUniform1i(shadowID, 0); // shader内设置是否为阴影选项，分别着色
 
-	// TODO 将相机位置传入顶点着色器
+	glDrawElements(GL_TRIANGLES, int(mesh->f().size() * 3), GL_UNSIGNED_INT, (void*)0);
+
+	// 计算阴影投影矩阵，并传入顶点着色器
+	float lx = lightPos.x;
+	float ly = lightPos.y;
+	float lz = lightPos.z;
+
+	mat4 shadowProjMatrix(
+		-ly, 0.0, 0.0, 0.0,
+		lx, 0.0, lz, 1.0,
+		0.0, 0.0, -ly, 0.0,
+		0.0, 0.0, 0.0, -ly);
+
+	shadowProjMatrix = shadowProjMatrix * modelViewMatrix;
+	glUniformMatrix4fv(modelViewMatrixID, 1, GL_TRUE, &shadowProjMatrix[0][0]);
+	glUniform1i(shadowID, 1);
+
+	// 设置旋转矩阵
+	mat4 rotationMatrix = RotateX(rotationAngle);
+	glUniformMatrix4fv(rotationMatrixID, 1, GL_TRUE, &rotationMatrix[0][0]);
+
+	// 将相机位置传入顶点着色器
 	glUniform3fv(lightPosID, 1, lightPos);
 
-	glEnableVertexAttribArray(vPositionID);
 	glBindBuffer(GL_ARRAY_BUFFER, vertexBufferID);
 	glVertexAttribPointer(
 		vPositionID,
@@ -155,20 +188,15 @@ void reshape(GLsizei w, GLsizei h)
 	glViewport(0, 0, w, h);
 }
 
-void idleFunction()
-{
-	glutPostWindowRedisplay(mainWindow);
-}
-
 //////////////////////////////////////////////////////////////////////////
 // 鼠标响应函数
 
 void mouse(int button, int state, int x, int y)
 {
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
-	{
-		lightPos.x = (x - 250) / 12;
-		lightPos.y = (250 - y) / 12;
+	{ // 窗口中心点为（250, 250）
+		lightPos.x = (x - 250) / 10;
+		lightPos.y = (250 - y) / 10;
 		glutPostWindowRedisplay(mainWindow);
 	}
 }
@@ -186,6 +214,13 @@ void keyboard(unsigned char key, int x, int y)
 	case 'q':
 		exit(EXIT_SUCCESS);
 		break;
+	case 'x':		// 'x' 键使得场景旋转-1.0度
+		rotationAngle -= 1.0;
+		break;
+	case 'X':		// 'X' 键使得场景旋转+1.0度
+		rotationAngle += 1.0;
+		break;
+
 	}
 	glutPostRedisplay();
 }
@@ -219,7 +254,7 @@ int main(int argc, char **argv)
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);
 	glutInitWindowSize(500, 500);
-	mainWindow = glutCreateWindow("OpenGL-Tutorial");
+	mainWindow = glutCreateWindow("2015160196_刘畅宇_实验3");
 
 	glewInit();
 	init();
@@ -228,7 +263,7 @@ int main(int argc, char **argv)
 	glutReshapeFunc(reshape);
 	glutMouseFunc(mouse);
 	glutKeyboardFunc(keyboard);
-	glutIdleFunc(idleFunction);
+	glutIdleFunc(idle);
 
 	glutMainLoop();
 

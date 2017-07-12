@@ -1,13 +1,16 @@
-#version 330 core
+#version 330 core 
 
 in vec3 vPosition;
-out vec4 color;
 
-uniform mat4 modelViewProjMatrix;
+uniform mat4 rotationMatrix;
+
+uniform mat4 modelViewMatrix;
+uniform mat4 projMatrix;
 
 void main() 
 {
-    gl_Position = modelViewProjMatrix * vec4(vPosition, 1.0);
+	vec4 v1 = projMatrix * modelViewMatrix * vec4(vPosition, 1.0);
+	vec4 v2 = vec4(v1.xyz / v1.w, 1.0);
 	
-	color = vec4(vPosition+vec3(0.5,0.5,0.5), 1.0);
+	gl_Position = rotationMatrix * v2;
 }
