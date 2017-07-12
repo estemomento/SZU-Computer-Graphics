@@ -254,7 +254,7 @@ int main(int argc, char **argv)
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);
 	glutInitWindowSize(500, 500);
-	mainWindow = glutCreateWindow("2015160196_刘畅宇_实验3");
+	mainWindow = glutCreateWindow("实验3");
 
 	glewInit();
 	init();

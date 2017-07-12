@@ -18,7 +18,7 @@ int main()
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 	
 	GLFWwindow* window = glfwCreateWindow(screenWidth, screenHeight, "", nullptr, nullptr); 
-	glfwSetWindowTitle(window, u8"2015160196_刘畅宇_期末大作业"); // Prevent text encoding bugs
+	glfwSetWindowTitle(window, u8"期末大作业"); // Prevent text encoding bugs
 	glfwMakeContextCurrent(window);
 
 	// Set the required callback functions

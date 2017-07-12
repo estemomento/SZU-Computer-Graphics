@@ -2,7 +2,7 @@
 
 #pragma comment(lib, "glew32.lib")
 
-// ¶¨ÒåÑÕÉ«ºÍÍ¼ÐÎµãÊý³£Á¿
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½Í¼ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 const vec3 WHITE(1.0, 1.0, 1.0);
 const vec3 BLACK(0.0, 0.0, 0.0);
 const vec3 RED(1.0, 0.0, 0.0);
@@ -16,7 +16,7 @@ const int SQUARE_NUM = 6;
 const int SQUARE_NUM_POINTS = 4 * SQUARE_NUM;
 const int TOTAL_NUM_POINTS = TRIANGLE_NUM_POINTS + SQUARE_NUM_POINTS + CIRCLE_NUM_POINTS + ELLIPSE_NUM_POINTS;
 
-// »ñµÃÍÖÔ²±ß½çµÄµã
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ß½ï¿½ï¿½Äµï¿½
 vec2 getEllipseVertex(vec2 center, double scale, double verticalScale, double angle)
 {
 	vec2 vertex(sin(angle), cos(angle));
@@ -26,25 +26,25 @@ vec2 getEllipseVertex(vec2 center, double scale, double verticalScale, double an
 	return vertex;
 }
 
-// ¸ù¾Ý½Ç¶ÈÉú³ÉÑÕÉ«
+// ï¿½ï¿½ï¿½Ý½Ç¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
 float generateAngleColor(double angle)
 {
 	return 1.0 / (2 * M_PI) * angle;
 }
 
-// »ñµÃÈý½ÇÐÎµÄÃ¿¸ö½Ç¶È
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½Ã¿ï¿½ï¿½ï¿½Ç¶ï¿½
 double getTriangleAngle(int point)
 {
 	return 2 * M_PI / 3 * point;
 }
 
-// »ñµÃÕý·½ÐÎµÄÃ¿¸ö½Ç¶È
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½Ã¿ï¿½ï¿½ï¿½Ç¶ï¿½
 double getSquareAngle(int point)
 {
 	return M_PI / 4 + (M_PI / 2 * point);
 }
 
-// Éú³ÉÍÖÔ²ÉÏµÄÃ¿¸öµã
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½Ïµï¿½Ã¿ï¿½ï¿½ï¿½ï¿½
 void generateEllipsePoints(vec2 vertices[], vec3 colors[], int startVertexIndex, int numPoints, vec2 center, double scale, double verticalScale)
 {
 	double angleIncrement = (2 * M_PI) / numPoints;
@@ -53,12 +53,12 @@ void generateEllipsePoints(vec2 vertices[], vec3 colors[], int startVertexIndex,
 	for (int i = startVertexIndex; i < startVertexIndex + numPoints; ++i)
 	{
 		vertices[i] = getEllipseVertex(center, scale, verticalScale, currentAngle);
-		// Èô verticalScale ²ÎÊýÎª1.0£¨Ò²¾ÍÊÇÔ²£©µ÷ÓÃ¸ù¾Ý½Ç¶ÈÉú³Éº¯ÊýÌî³ä½¥±äÑÕÉ«
+		// ï¿½ï¿½ verticalScale ï¿½ï¿½ï¿½ï¿½Îª1.0ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½ï¿½ï¿½Ã¸ï¿½ï¿½Ý½Ç¶ï¿½ï¿½ï¿½ï¿½Éºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ä½¥ï¿½ï¿½ï¿½ï¿½É«
 		if (verticalScale == 1.0)
 		{
 			colors[i] = vec3(generateAngleColor(currentAngle), 0.5, 0.75);
 		}
-		// ÈôÎªÍÖÔ² Ìî³äÀ¶É«
+		// ï¿½ï¿½Îªï¿½ï¿½Ô² ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
 		else
 		{
 			colors[i] = BLUE;
@@ -67,7 +67,7 @@ void generateEllipsePoints(vec2 vertices[], vec3 colors[], int startVertexIndex,
 	}
 }
 
-// Éú³ÉÈý½ÇÐÎÉÏµÄÃ¿¸öµã
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Ã¿ï¿½ï¿½ï¿½ï¿½
 void generateTrianglePoints(vec2 vertices[], vec3 colors[], int startVertexIndex)
 {
 	double scale = 0.25;
@@ -75,19 +75,19 @@ void generateTrianglePoints(vec2 vertices[], vec3 colors[], int startVertexIndex
 
 	for (int i = 0; i < 3; ++i)
 	{
-		// µ±Ç°¶¥µã¶ÔÓ¦µÄ½Ç¶È
+		// ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Ä½Ç¶ï¿½
 		double currentAngle = getTriangleAngle(i);
-		// vec2±äÁ¿¿ØÖÆÕýÈý½ÇÐÎ·½Ïò
+		// vec2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î·ï¿½ï¿½ï¿½
 		vertices[startVertexIndex + i] = vec2(sin(currentAngle), -cos(currentAngle)) * scale + center;
 	}
 
-	// ¶¨ÒåÈý¸ö¶¥µãµÄÑÕÉ«
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
 	colors[startVertexIndex] = RED;
 	colors[startVertexIndex + 1] = WHITE;
 	colors[startVertexIndex + 2] = BLUE;
 }
 
-// Éú³ÉÕý·½ÐÎÉÏµÄÃ¿¸öµã
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Ã¿ï¿½ï¿½ï¿½ï¿½
 void generateSquarePoints(vec2 vertices[], vec3 colors[], int squareNumber, int startVertexIndex)
 {
 	double scale = 0.90;
@@ -97,11 +97,11 @@ void generateSquarePoints(vec2 vertices[], vec3 colors[], int squareNumber, int 
 	for (int is = 0; is < SQUARE_NUM; is++)
 	{
 		vec3 currentColor = RED;
-		// ¿ØÖÆÑÕÉ«µÄ±ä»¯
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½Ä±ä»¯
 		currentColor = (is % 2) ? GREEN : WHITE;
 		for (int j = 0; j < 4; ++j)
 		{
-			// µ±Ç°¶¥µã¶ÔÓ¦µÄ½Ç¶È
+			// ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Ä½Ç¶ï¿½
 			double currentAngle = getSquareAngle(j);
 			vertices[vertexIndex] = vec2(cos(currentAngle), sin(currentAngle)) * scale + center;
 			colors[vertexIndex] = currentColor;
@@ -111,108 +111,108 @@ void generateSquarePoints(vec2 vertices[], vec3 colors[], int squareNumber, int 
 	}
 }
 
-// ¸ºÔðÉèÖÃ³ÌÐòÖÐÓÃµ½µÄÊý¾Ý
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void init()
 {
 	vec2 vertices[TOTAL_NUM_POINTS];
 	vec3 colors[TOTAL_NUM_POINTS];
 
-	// ¶¨ÒåÍÖÔ²ºÍÔ²µÄ»æÖÆÖÐÐÄµã
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½Ô²ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½
 	vec2 ellipseCenter(-3, 6);
 	vec2 circleCenter(3, 3.75);
 
-	// µ÷ÓÃÉú³ÉÐÎ×´¶¥µãÎ»ÖÃµÄº¯Êý
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´ï¿½ï¿½ï¿½ï¿½Î»ï¿½ÃµÄºï¿½ï¿½ï¿½
 	generateTrianglePoints(vertices, colors, 0);
 	generateSquarePoints(vertices, colors, SQUARE_NUM, TRIANGLE_NUM_POINTS);
 	generateEllipsePoints(vertices, colors, TRIANGLE_NUM_POINTS + SQUARE_NUM_POINTS, ELLIPSE_NUM_POINTS, ellipseCenter, 0.2, 0.6);
 	generateEllipsePoints(vertices, colors, TRIANGLE_NUM_POINTS + SQUARE_NUM_POINTS + ELLIPSE_NUM_POINTS, CIRCLE_NUM_POINTS, circleCenter, 0.2, 1);
 
-	// ´´½¨¶¥µãÊý×é¶ÔÏó
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	GLuint vao[1];
-	// ·ÖÅä1¸ö¶¥µãÊý×é¶ÔÏó
+	// ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	glGenVertexArrays(1, vao);
-	// °ó¶¨¶¥µãÊý×é¶ÔÏó
+	// ï¿½ó¶¨¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	glBindVertexArray(vao[0]);
 
-	// ´´½¨¶¥µã»º´æ¶ÔÏó
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã»ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	GLuint buffer;
-	// ·ÖÅä1¸ö¶¥µãÊý×é¶ÔÏó
+	// ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	glGenBuffers(1, &buffer);
-	// °ó¶¨¶¥µã»º´æ¶ÔÏó
+	// ï¿½ó¶¨¶ï¿½ï¿½ã»ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	glBindBuffer(GL_ARRAY_BUFFER, buffer);
-	// ·ÖÅäÊý¾ÝËùÐèµÄ´æ´¢¿Õ¼ä£¬½«Êý¾Ý¿½±´µ½OpenGL·þÎñ¶ËÄÚ´æ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä´æ´¢ï¿½Õ¼ä£¬ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½OpenGLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices) + sizeof(colors), NULL, GL_STATIC_DRAW);
 
-	// ·Ö±ð¶ÁÈ¡Êý¾Ý
+	// ï¿½Ö±ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
 	glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
 	glBufferSubData(GL_ARRAY_BUFFER, sizeof(vertices), sizeof(colors), colors);
 
-	// ¶ÁÈ¡×ÅÉ«Æ÷²¢Ê¹ÓÃ
+	// ï¿½ï¿½È¡ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½
 	GLuint program = InitShader("vshader.glsl", "fshader.glsl");
 	glUseProgram(program);
 
-	// ´Ó¶¥µã×ÅÉ«Æ÷ÖÐ³õÊ¼»¯¶¥µãµÄÎ»ÖÃ
+	// ï¿½Ó¶ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½Ð³ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
 	GLuint pLocation = glGetAttribLocation(program, "vPosition");
-	// ÆôÓÃ¶¥µãÊôÐÔÊý×é
+	// ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	glEnableVertexAttribArray(pLocation);
-	// ¹ØÁªµ½¶¥µãÊôÐÔÊý×é (index, size, type, normalized, stride, *pointer)
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (index, size, type, normalized, stride, *pointer)
 	glVertexAttribPointer(pLocation, 2, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
 
-	// ´ÓÆ¬Ôª×ÅÉ«Æ÷ÖÐ³õÊ¼»¯¶¥µãµÄÑÕÉ«
+	// ï¿½ï¿½Æ¬Ôªï¿½ï¿½É«ï¿½ï¿½ï¿½Ð³ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
 	GLuint cLocation = glGetAttribLocation(program, "vColor");
 	glEnableVertexAttribArray(cLocation);
 	glVertexAttribPointer(cLocation, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(sizeof(vertices)));
 
-	// ÉèÖÃÁËµ±Ç°Ê¹ÓÃµÄÇå³ýÑÕÉ«Öµ£¬ÕâÀïÉèÖÃÎªºÚÉ«±³¾°
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½Ç°Ê¹ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½
 	glClearColor(0.0, 0.0, 0.0, 1.0);
 }
 
-// ¸ºÔðäÖÈ¾ÐèÒªµÄÄÚÈÝ
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¾ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void display(void)
 {
-	// ÇåÀíÖ¸¶¨»º´æÊý¾Ý²¢ÖØÉèÎªµ±Ç°µÄÇå³ýÖµ
+	// ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý²ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	// Ê¹ÓÃµ±Ç°°ó¶¨µÄ¶¥µãÊý¾Ý½¨Á¢¼¸ºÎÍ¼Ôª (mode, first, count)
+	// Ê¹ï¿½Ãµï¿½Ç°ï¿½ó¶¨µÄ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Ôª (mode, first, count)
 	glDrawArrays(GL_TRIANGLES, 0, TRIANGLE_NUM_POINTS);
 
-	// »æÖÆ¶à¸öÕý·½ÐÎ
+	// ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	for (int i = 0; i < SQUARE_NUM; ++i)
 	{
 		glDrawArrays(GL_TRIANGLE_FAN, TRIANGLE_NUM_POINTS + (i * 4), 4);
 	}
 
-	// »æÖÆÍÖÔ²
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô²
 	glDrawArrays(GL_POLYGON, SQUARE_NUM_POINTS + TRIANGLE_NUM_POINTS, ELLIPSE_NUM_POINTS);
 
-	// »æÖÆÔ²ÐÎ
+	// ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½
 	glDrawArrays(GL_POLYGON, SQUARE_NUM_POINTS + TRIANGLE_NUM_POINTS + ELLIPSE_NUM_POINTS, CIRCLE_NUM_POINTS);
 
-	// Ç¿ÖÆËùÓÐ½øÐÐÖÐµÄOpenGLÃüÁîÍê³É
+	// Ç¿ï¿½ï¿½ï¿½ï¿½ï¿½Ð½ï¿½ï¿½ï¿½ï¿½Ðµï¿½OpenGLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	//glFlush()
 	glutSwapBuffers();
 }
 
-// ´´½¨´°¿Ú¡¢³õÊ¼»¯¡¢½øÈëÊÂ¼þÑ­»·
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¡ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½Ñ­ï¿½ï¿½
 int main(int argc, char **argv)
 {
-	// ³õÊ¼»¯GLUT¿â£¬±ØÐëÊÇÓ¦ÓÃ³ÌÐòµ÷ÓÃµÄµÚÒ»¸öGLUTº¯Êý
+	// ï¿½ï¿½Ê¼ï¿½ï¿½GLUTï¿½â£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÃµÄµï¿½Ò»ï¿½ï¿½GLUTï¿½ï¿½ï¿½ï¿½
 	glutInit(&argc, argv);
 
-	// ÅäÖÃ´°¿ÚµÄÏÔÊ¾ÌØÐÔ
+	// ï¿½ï¿½ï¿½Ã´ï¿½ï¿½Úµï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);
 	glutInitWindowSize(500, 500);
-	glutCreateWindow("2015160196_Áõ³©Óî_ÊµÑé1");
+	glutCreateWindow("Êµï¿½ï¿½1");
 
 	glewExperimental = GL_TRUE;
 	glewInit();
 
 	init();
 
-	// Ö¸¶¨µ±Ç°´°¿Ú½øÐÐÖØ»æÊ±Òªµ÷ÓÃµÄº¯Êý
+	// Ö¸ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Ú½ï¿½ï¿½ï¿½ï¿½Ø»ï¿½Ê±Òªï¿½ï¿½ï¿½ÃµÄºï¿½ï¿½ï¿½
 	glutDisplayFunc(display);
 
-	// ¸ºÔðÒ»Ö±´¦Àí´°¿ÚºÍ²Ù×÷ÏµÍ³µÄÓÃ»§ÊäÈëµÈ²Ù×÷
+	// ï¿½ï¿½ï¿½ï¿½Ò»Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÚºÍ²ï¿½ï¿½ï¿½ÏµÍ³ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È²ï¿½ï¿½ï¿½
 	glutMainLoop();
 	return 0;
 }

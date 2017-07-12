@@ -360,7 +360,7 @@ int main(int argc, char **argv)
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);    // 窗口支持双重缓冲和深度测试
 	glutInitWindowPosition(100, 100);
 	glutInitWindowSize(600, 600);
-	mainWindow = glutCreateWindow("2015160196_刘畅宇_实验2");
+	mainWindow = glutCreateWindow("实验2");
 
 	glewExperimental = GL_TRUE;
 	glewInit();

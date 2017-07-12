@@ -77,7 +77,7 @@ int main( int argc, char **argv )
     glutInitWindowSize( 512, 512 );
     glutInitContextVersion( 3, 2 );
     glutInitContextProfile( GLUT_CORE_PROFILE );
-    glutCreateWindow( "2015160196_刘畅宇_实验4" );
+    glutCreateWindow( "实验4" );
 	glewExperimental = GL_TRUE;
     glewInit();
 
